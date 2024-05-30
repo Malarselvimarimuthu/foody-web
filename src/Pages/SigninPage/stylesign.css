@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f2f2f2; */
+    background-image: url('https://img.freepik.com/free-photo/preparing-raw-barbeque-chicken-cooking_1220-2987.jpg?t=st=1716903071~exp=1716906671~hmac=d1748daa003d9caa15f51eb130cc4655038ef9594650bb1a644c32299facf254&w=1800');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    /* background-image: url('https://img.freepik.com/premium-photo/natural-organic-cosmetic-concept_136595-14616.jpg?w=360'); */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: ;  */
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    color: #007bff;
+    /* border: 1px solid #ccc; */
+    /* margin-top: 16px; */
+    /* border-radius: 8px; */
+    max-width: 300px;
+}
+
+.psw-links {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    color: black;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[type=submit],
+button[type=button] {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+button[type=submit]:hover,
+button[type=button]:hover {
+    background-color: #0056b3;
+}
+
+.cancelbtn {
+    background-color: #f44336;
+}
+
+.cancelbtn:hover {
+    background-color: #d32f2f;
+}
+
+.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+.psw a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.psw a:hover {
+    text-decoration: underline;
+}

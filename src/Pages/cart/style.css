@@ -1,0 +1,31 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+}
+
+.order-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.order-item-info {
+    flex-grow: 1;
+}
+
+.order-summary h5 {
+    font-weight: bold;
+}
+
+.order-summary button {
+    font-weight: bold;
+}
