@@ -1,0 +1,11 @@
+.custom-gap {
+    gap: 20px; 
+  }
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  .small-img {
+    width: 110px; /* or any other size you prefer */
+    height: auto; /* to maintain the aspect ratio */
+  }
