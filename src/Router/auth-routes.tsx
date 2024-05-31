@@ -8,7 +8,7 @@ const OnlineOrder = lazy(() => import('../Pages/OnlineOrder'));
 export const navigationRouts = [
   {
     name: 'Home',
-    path: '/',
+    path: '/home',
     component: <Home />
   },
   {

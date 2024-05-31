@@ -13,7 +13,7 @@ export default [
   },
   {
     name: 'SignIn',
-    path: '/signIn',
+    path: '/',
     component: <Signin />
   },
 ];
