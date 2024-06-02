@@ -101,8 +101,15 @@ const HomePage: React.FC = () => {
   const cardChunksContainer2 = chunkArray(cardsContainer2, 4);
 
   return (
-    <><br></br>
-    <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30}}><b>Indian meat dishes</b></h2>
+    <div style={{backgroundColor: 'black',
+     backgroundImage: 'url(https://static.vecteezy.com/system/resources/thumbnails/026/794/680/small_2x/double-hamburger-isolated-on-white-background-fresh-burger-fast-food-with-beef-and-cream-cheese-realistic-image-ultra-hd-high-design-very-detailed-free-photo.jpg)',
+     backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+   }}>
+  <br></br>
+    <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30,color:'white'}}><b>Indian meat dishes</b></h2>
       <Container className="mt-4">
         <Carousel>
           {cardChunksContainer1.map((chunk, idx) => (
@@ -133,7 +140,7 @@ const HomePage: React.FC = () => {
           ))}
         </Carousel>
       </Container><br></br>
-      <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30}}><b>South Indian Food</b></h2>
+      <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30,color:'white'}}><b>South Indian Food</b></h2>
       <Container className="mt-4">
         <Carousel>
           {cardChunksContainer2.map((chunk, idx) => (
@@ -163,8 +170,8 @@ const HomePage: React.FC = () => {
             </Carousel.Item>
           ))}
         </Carousel>
-      </Container>
-    </>
+      </Container><br></br><br></br>
+    </div>
   );
 };
 
