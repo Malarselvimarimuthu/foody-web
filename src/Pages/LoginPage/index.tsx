@@ -176,6 +176,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./style.css";
+import { useEffect } from 'react';
 
 type FormValues = {
   email: string;
@@ -194,7 +195,7 @@ const validationSchema = Yup.object().shape({
 
 const onSubmit = async (values: FormValues, navigate: Function) => {
   try {
-    const response = await axios.post(' http://localhost:8082/api/auth/manual/login', values);
+    const response = await axios.post('http://localhost:8082/api/auth/login', values);
     console.log('Form Data', response.data);
     // Redirect to home page after successful login
     navigate('/home');
@@ -202,6 +203,7 @@ const onSubmit = async (values: FormValues, navigate: Function) => {
     console.error('Error submitting form', error);
   }
 }
+
 
 export default function LoginPage(): JSX.Element {
   const navigate = useNavigate();
@@ -211,6 +213,8 @@ export default function LoginPage(): JSX.Element {
     onSubmit: (values) => onSubmit(values, navigate)
   });
 
+  
+  
   return (
     <div>
       <h2>Login Form</h2>

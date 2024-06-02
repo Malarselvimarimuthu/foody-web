@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -25,7 +25,13 @@ const HomePage: React.FC = () => {
     window.location.href = url; // Redirect to the specified URL
   };
 
-
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+      localStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
+    }
+  }, []);
   
   return (
     <div>

@@ -27,7 +27,7 @@ const onSubmit = async (values: FormValues, navigate: Function) => {
         const response = await axios.post('http://localhost:8082/api/auth/register', values);
         console.log('Form Data', response.data);
         // Redirect to login page after successful signup
-        navigate('/login');
+        navigate('/');
     } catch (error) {
         console.error('Error submitting form', error);
     }
@@ -92,7 +92,7 @@ export default function SigninPage(): JSX.Element {
                 <div className="container">
                     <button type="button" className="cancelbtn">Cancel</button>
                     <div className="container psw-links">
-                        <span className="psw"><a href="/login">Login</a></span>
+                        <span className="psw"><a href="/">Login</a></span>
                     </div>
                 </div>
             </form>

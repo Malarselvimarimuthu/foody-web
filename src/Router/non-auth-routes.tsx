@@ -2,19 +2,19 @@ import { lazy } from 'react';
 
 // Importing routes
 const Login = lazy(() => import('../Pages/LoginPage'));
-const Signin = lazy(() => import('../Pages/SigninPage'));
+const SignUp = lazy(() => import('../Pages/SignUpPage'));
 
 
 export default [
   {
     name: 'Login',
-    path: '/login',
+    path: '/',
     component: <Login />
   },
   {
-    name: 'SignIn',
-    path: '/',
-    component: <Signin />
+    name: 'SignUp',
+    path: '/signup',
+    component: <SignUp />
   },
 ];
 
