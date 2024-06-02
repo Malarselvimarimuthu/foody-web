@@ -213,7 +213,7 @@ export default function LoginPage(): JSX.Element {
 
   return (
     <div>
-      <h2>Login Form</h2>
+      <h2 style={{color:'white'}}>Login Form</h2>
 
       <form onSubmit={formik.handleSubmit}>
         <div className="container">
@@ -249,7 +249,7 @@ export default function LoginPage(): JSX.Element {
         <div className="container">
           <button type="button" className="cancelbtn">Cancel</button>
           <div className="container psw-links">
-            <span className="psw"><a href="/">Sign Up</a></span>
+            <span className="psw"><a href="/" >Sign Up</a></span>
           </div>
         </div>
       </form>

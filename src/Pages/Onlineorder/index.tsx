@@ -1,8 +1,21 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery';
+import 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './style.css';
+import { Button, Card, Carousel } from 'react-bootstrap';
 
-const HomePage: React.FC = () => {
+export default function OnlineOrder() {
+  const imageFilenames = [
+    'https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png',
+    'https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png',
+    'https://b.zmtcdn.com/data/o2_assets/2f34540e0b12058f5f8b9390c3a3fb4a1648972281.png',
+    'https://b.zmtcdn.com/data/dish_images/1437bc204cb5c892cb22d78b4347f4651634827140.png',
+    'https://b.zmtcdn.com/data/o2_assets/2b5a5b533473aada22015966f668e30e1633434990.png',
+    'https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png'
+  ];
   const cardsContainer1 = [
     {
       title: 'Card Title 1',
@@ -88,19 +101,22 @@ const HomePage: React.FC = () => {
       imgSrc: 'https://i0.wp.com/travelgenes.com/wp-content/uploads/2020/10/Uttappam.jpg'
     },
   ];
-
-  const chunkArray = (array: any[], chunkSize: number) => {
-    const results = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      results.push(array.slice(i, i + chunkSize));
-    }
-    return results;
-  };
-
-  const cardChunksContainer1 = chunkArray(cardsContainer1, 4);
-  const cardChunksContainer2 = chunkArray(cardsContainer2, 4);
+  
+ 
+    const chunkArray = (array: any[], chunkSize: number) => {
+      const results = [];
+      for (let i = 0; i < array.length; i += chunkSize) {
+        results.push(array.slice(i, i + chunkSize));
+      }
+      return results;
+    };
+  
+    const cardChunksContainer1 = chunkArray(cardsContainer1, 4);
+    const cardChunksContainer2 = chunkArray(cardsContainer2, 4);
+  
 
   return (
+    
     <div style={{backgroundColor: 'black',
      backgroundImage: 'url(https://static.vecteezy.com/system/resources/thumbnails/026/794/680/small_2x/double-hamburger-isolated-on-white-background-fresh-burger-fast-food-with-beef-and-cream-cheese-realistic-image-ultra-hd-high-design-very-detailed-free-photo.jpg)',
      backgroundSize: 'cover',
@@ -108,71 +124,95 @@ const HomePage: React.FC = () => {
     backgroundRepeat: 'no-repeat',
     width: '100%',
    }}>
-  <br></br>
+    <div>
+      
+      <br></br>
+      
+
+<Container>
+      <h1 className="text-white">Inspiration to the First Order</h1>
+      <br />
+      <div className="d-flex align-items-center">
+        <div className="flex-grow-1" style={{ overflowX: 'auto' }}>
+          <Row className="flex-nowrap custom-gap">
+            {imageFilenames.map((filename, index) => (
+              <Col key={index} xs={6} sm={4} md={3} lg={2} className="d-flex justify-content-center">
+                <div className="text-center">
+                  <img src={filename} alt={`Image ${index + 1}`} className="img-fluid small-img mb-2" />
+                  <p className="text-white">Image {index + 1}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      </div>
+    </Container>
+      
+
+     
     <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30,color:'white'}}><b>Indian meat dishes</b></h2>
+     
       <Container className="mt-4">
-        <Carousel>
-          {cardChunksContainer1.map((chunk, idx) => (
-            <Carousel.Item key={idx}>
-              <Row>
-                {chunk.map((card, index) => (
-                  <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                    <Card style={{ width: '18rem', margin: 'auto' }}>
-                      <div style={{ height: '250px', overflow: 'hidden' }}>
-                        <Card.Img
-                          variant="top"
-                          src={card.imgSrc}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{card.title}</Card.Title>
-                        <Card.Text>
-                          {card.text}
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </Container><br></br>
+      <Carousel>
+        {cardChunksContainer1.map((chunk, idx) => (
+          <Carousel.Item key={idx}>
+            <Row>
+              {chunk.map((card, index) => (
+                <Col key={index} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                  <Card style={{ width: '100%', height: '100%' }}>
+                    <div style={{ height: '250px', overflow: 'hidden' }}>
+                      <Card.Img
+                        variant="top"
+                        src={card.imgSrc}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <Card.Body>
+                      <Card.Title>{card.title}</Card.Title>
+                      <Card.Text>{card.text}</Card.Text>
+                      <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Container>
       <h2 style={{textAlign:'center',fontFamily:'times new Roman',fontSize:30,color:'white'}}><b>South Indian Food</b></h2>
+      
       <Container className="mt-4">
-        <Carousel>
-          {cardChunksContainer2.map((chunk, idx) => (
-            <Carousel.Item key={idx}>
-              <Row>
-                {chunk.map((card, index) => (
-                  <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                    <Card style={{ width: '18rem', margin: 'auto' }}>
-                      <div style={{ height: '250px', overflow: 'hidden' }}>
-                        <Card.Img
-                          variant="top"
-                          src={card.imgSrc}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{card.title}</Card.Title>
-                        <Card.Text>
-                          {card.text}
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </Container><br></br><br></br>
+      <Carousel>
+        {cardChunksContainer2.map((chunk, idx) => (
+          <Carousel.Item key={idx}>
+            <Row>
+              {chunk.map((card, index) => (
+                <Col key={index} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                  <Card className="h-100">
+                    <div style={{ height: '250px', overflow: 'hidden' }}>
+                      <Card.Img
+                        variant="top"
+                        src={card.imgSrc}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <Card.Body className="d-flex flex-column">
+                      <Card.Title>{card.title}</Card.Title>
+                      <Card.Text>{card.text}</Card.Text>
+                      <Button variant="primary" className="mt-auto">Go somewhere</Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Container>
+
+      <br></br><br></br> 
+    </div>
     </div>
   );
-};
-
-export default HomePage;
+}

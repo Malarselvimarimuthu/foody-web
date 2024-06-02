@@ -39,10 +39,10 @@ export function Header() {
             >
               {" "}
               {/* Move Home link to the right */}
-              <Nav.Link href="/" className="mx-lg-4">
+              <Nav.Link href="/home" className="mx-lg-4">
                 <h2>Home</h2>
               </Nav.Link>
-              <Nav.Link href="/onlineorder" className="mx-lg-4">
+              <Nav.Link href="/" className="mx-lg-4">
                 <h2>Logout</h2>
               </Nav.Link>
             </Nav>

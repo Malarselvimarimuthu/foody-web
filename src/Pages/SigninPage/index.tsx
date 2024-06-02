@@ -43,7 +43,7 @@ export default function SigninPage(): JSX.Element {
 
     return (
         <div>
-            <h2>Signin Form</h2>
+            <h2 style={{color:'white'}}>Signin Form</h2>
 
             <form onSubmit={formik.handleSubmit}>
                 <div className="container">
