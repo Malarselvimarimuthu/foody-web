@@ -1,23 +1,30 @@
+// Importing packages
 import { lazy } from 'react';
 
 // Importing routes
 const Home = lazy(() => import('../Pages/HomePage'));
-const OnlineOrder = lazy(() => import('../Pages/OnlineOrder'));
-
+const Onlineorder = lazy(() => import('../Pages/OnlineOrder'));
+const Search = lazy(() => import('../Pages/Search'));
 
 export const navigationRouts = [
-  {
-    name: 'Home',
-    path: '/home',
-    component: <Home />
-  },
-  {
-    name: 'OnlineOrder',
-    path: '/onlineorder',
-    component: <OnlineOrder />
-  }
+{
+name: 'Home',
+path: '/home',
+component: <Home />
+},
+{
+name: 'Onlineorder',
+path: '/onlineorder',
+component: <Onlineorder />
+},
+{
+    name: 'Search',
+    path: '/search',
+    component: <Search />
+}
 ];
 
 export default {
-  navigationRouts
+navigationRouts
 };
+//route.tsx
