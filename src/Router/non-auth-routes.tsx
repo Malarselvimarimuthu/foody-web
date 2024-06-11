@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
 // Importing routes
-const Login = lazy(() => import('../Pages/LoginPage'));
+const Login = lazy(() => import('../Pages/Login_Page'));
 const SignUp = lazy(() => import('../Pages/SignUpPage'));
 
 

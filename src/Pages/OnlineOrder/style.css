@@ -1,11 +1,33 @@
 .custom-gap {
-    gap: 20px; 
-  }
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-  }
-  .small-img {
-    width: 110px; /* or any other size you prefer */
-    height: auto; /* to maintain the aspect ratio */
-  }
+  gap: 20px; 
+}
+.img-fluid {
+  max-width: 50%;
+  height: auto;
+  
+}
+.small-img {
+  width: 110px; 
+  height: auto; 
+}
+.image-gallery-container {
+  width: 100%;
+}
+
+.overflow-auto {
+  overflow-x: auto;
+}
+
+.custom-gap {
+  gap: 0.1rem; 
+}
+
+.small-img {
+  max-width: 250%; 
+}
+
+.large-image-gallery-container {
+  width: 100%;
+  margin: 0 auto; 
+  padding: 20px; 
+}

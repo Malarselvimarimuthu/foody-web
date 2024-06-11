@@ -1,7 +1,8 @@
-body {
+.whole {
     font-family: Arial, sans-serif;
-    /* background-color: #f2f2f2; */
-    background-image: url('https://img.freepik.com/free-photo/preparing-raw-barbeque-chicken-cooking_1220-2987.jpg?t=st=1716903071~exp=1716906671~hmac=d1748daa003d9caa15f51eb130cc4655038ef9594650bb1a644c32299facf254&w=1800');
+    /* background-color: #f2f2f2;  */
+    /* background-image: url(''); */
+    
     background-size: cover;
     background-position: center;
     display: flex;

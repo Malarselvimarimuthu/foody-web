@@ -5,6 +5,7 @@ import { lazy } from 'react';
 const Home = lazy(() => import('../Pages/HomePage'));
 const Onlineorder = lazy(() => import('../Pages/OnlineOrder'));
 const Search = lazy(() => import('../Pages/Search'));
+const Cart = lazy(() => import('../Pages/CartPage'));
 
 export const navigationRouts = [
 {
@@ -21,6 +22,11 @@ component: <Onlineorder />
     name: 'Search',
     path: '/search',
     component: <Search />
+},
+{
+    name: 'Search',
+    path: '/cart',
+    component: <Cart />
 }
 ];
 

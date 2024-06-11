@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import axios from 'axios';
 
 const MealSearch: React.FC = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -93,14 +94,38 @@ const MealSearch: React.FC = () => {
     setShowRecipe(false);
   };
 
+  const addToCart = async (mealName: string) => {
+    try {
+      const userId = localStorage.getItem('usid');
+      const data = {
+        userId: userId,
+        items: [
+          { name: mealName, count: 1 }
+        ],
+        totalCost: "1000"
+      };
+  
+      const response = await axios.post('http://localhost:8082/api/orders/placeOrder', data);
+  
+      if (response.status === 201) {
+        alert('Item successfully added to cart!');
+      } else {
+        alert('Failed to add item to cart.');
+      }
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      alert('Failed to add item to cart.');
+    }
+  };
+  
+
   return (
     <div className="container">
       <div className="meal-wrapper">
         <div className="meal-search" style={{color:'white'}}>
-          <h2 className="title" style={{color:'white',fontSize:50,fontFamily:'Lucida Handwriting'}}><b>Order now and let us bring the flavors to your doorstep!</b></h2>
+          <h2 className="title" style={{color:'white',fontSize:50,fontFamily:'Times new roman'}}><b>Order now and let us bring the flavors to your doorstep!</b></h2>
           <blockquote style={{color:'white',fontSize:40,fontFamily:'Papyrus'}} className='title1'>
-          <b>Delight your taste buds with our delectable dishes, delivered fresh to your doorstep.</b><br />
-            
+          
           </blockquote>
 
           <div className="meal-search-box">
@@ -122,7 +147,7 @@ const MealSearch: React.FC = () => {
 
           <div className="filters">
             <select onChange={(e) => setSelectedCategory(e.target.value)}>
-              <option value="">Select Category</option>
+              <option value=""><h1>Select Category</h1></option>
               {categories.map(category => (
                 <option key={category.strCategory} value={category.strCategory}>
                   {category.strCategory}
@@ -169,7 +194,7 @@ const MealSearch: React.FC = () => {
                     </button>
                     <button
                       className="recipe-btn"
-                      onClick={() => handleRecipeClick(meal.idMeal)}
+                      onClick={() => addToCart(meal.strMeal)}
                     >
                       Order
                     </button>

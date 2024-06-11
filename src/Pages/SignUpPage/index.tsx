@@ -5,98 +5,112 @@ import { useNavigate } from 'react-router-dom';
 import "./style.css";
 
 type FormValues = {
-    name: string;
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 const initialValues: FormValues = {
-    name: '',
-    email: '',
-    password: '',
+  email: '',
+  password: '',
 }
 
 const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().required('Email is required').email('Invalid email format'),
-    password: Yup.string().required('Password is required'),
+  email: Yup.string().required('Email is required').email('Invalid email format'),
+  password: Yup.string().required('Password is required'),
 });
 
 const onSubmit = async (values: FormValues, navigate: Function) => {
-    try {
-        const response = await axios.post('http://localhost:8082/api/auth/register', values);
-        console.log('Form Data', response.data);
-        // Redirect to login page after successful signup
-        navigate('/');
-    } catch (error) {
-        console.error('Error submitting form', error);
+  try {
+    const response = await fetch('http://localhost:8082/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: values.email,
+        password: values.password
+      })
+    });
+    const data =  await response.json();
+    console.log('Form Data',data);
+    // Redirect to home page after successful login
+    if (response.status === 200) {
+      console.log('Logged in:', data);
+      localStorage.setItem('usid', data.userId);
+      navigate('/home');
+    } else {
+      if (response.status === 404) {
+        alert('Account Not yet Registered');
+      }
+      if (response.status === 401) {
+        alert('Invalid Credentials!');
+      }
     }
+    
+  } catch (error) {
+    console.error('Error submitting form', error);
+  }
 }
 
-export default function SigninPage(): JSX.Element {
-    const navigate = useNavigate();
-    const formik = useFormik<FormValues>({
-        initialValues,
-        validationSchema,
-        onSubmit: (values) => onSubmit(values, navigate)
-    });
 
-    return (
-        <div>
-            <h2 style={{color:'white'}}>Signin Form</h2>
+export default function LoginPage(): JSX.Element {
+  const navigate = useNavigate();
+  const formik = useFormik<FormValues>({
+    initialValues,
+    validationSchema,
+    onSubmit: (values) => onSubmit(values, navigate)
+  });
 
-            <form onSubmit={formik.handleSubmit}>
-                <div className="container">
-                    <label htmlFor="name"><b>Name</b></label>
-                    <input
-                        type="text"
-                        placeholder="Enter Name"
-                        name="name"
-                        value={formik.values.name}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                    {formik.touched.name && formik.errors.name ? (
-                        <div style={{ color: 'red' }}>{formik.errors.name}</div>
-                    ) : null}
+  
+  
+  return (
+   
+    <div>
+    <h1 style={{fontFamily:'times new roman',color:'red'}}><b>Foodie Go</b></h1>
+    <div className='card' style={{borderBlockWidth:3,borderLeftWidth:3,borderRightWidth:3}}>
+      {/* <h2 style={{color:'white'}}>Login Form</h2> */}
 
-                    <label htmlFor="email"><b>Email</b></label>
-                    <input
-                        type="text"
-                        placeholder="Enter Email"
-                        name="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                    {formik.touched.email && formik.errors.email ? (
-                        <div style={{ color: 'red' }}>{formik.errors.email}</div>
-                    ) : null}
+      <form onSubmit={formik.handleSubmit}>
+        <div className="container">
+          <label htmlFor="email" style={{ color: 'black',fontSize:20}}>Email</label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div style={{ color: 'red' }}>{formik.errors.email}</div>
+          ) : null}
 
-                    <label htmlFor="password"><b>Password</b></label>
-                    <input
-                        type="password"
-                        placeholder="Enter Password"
-                        name="password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                    {formik.touched.password && formik.errors.password ? (
-                        <div style={{ color: 'red' }}>{formik.errors.password}</div>
-                    ) : null}
+          <label htmlFor="password" style={{ color: 'black',fontSize:20 }}>Password</label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <div style={{ color: 'red' }}>{formik.errors.password}</div>
+          ) : null}
 
-                    <button type="submit">Signin</button>
-                </div>
-
-                <div className="container">
-                    <button type="button" className="cancelbtn">Cancel</button>
-                    <div className="container psw-links">
-                        <span className="psw"><a href="/">Login</a></span>
-                    </div>
-                </div>
-            </form>
+          <button type="submit" style={{backgroundColor:'orangered'}}>Login</button>
         </div>
-    );
+
+        <div className="container">
+          <button type="button" className="cancelbtn"style={{backgroundColor:'orangered'}}>Cancel</button>
+          <div className="container psw-links">
+            <span className="psw" ><a href="/" style={{color:'orangered'}} >Login</a></span>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+   
+  );
 }
 

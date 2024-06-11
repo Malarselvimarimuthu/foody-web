@@ -9,29 +9,20 @@ import Button from "react-bootstrap/Button";
 
 export function Header() {
   return (
-    <div>
+    <div style={{backgroundColor:'#FF4500'}}>
+      <br></br>
       <Navbar
         expand="lg"
-        className="bg-body-tertiary"
-        style={{ height: "100px" }}
+        
+        style={{ height: "25px",backgroundColor:'#FF4500'}}
       >
         <Container fluid>
           <Navbar.Brand href="#">
-            <h1>Foody Go</h1>
+            <h2 style={{color:"white",fontFamily:'open sans'}}><b>Foodie Go</b></h2>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex justify-content-center justify-content-lg-start">
-              {" "}
-              {/* Center search bar */}
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-lg-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
+            
             <Nav
               className="ms-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
@@ -40,15 +31,19 @@ export function Header() {
               {" "}
               {/* Move Home link to the right */}
               <Nav.Link href="/home" className="mx-lg-4">
-                <h2>Home</h2>
+                <h3 style={{color:"white"}}>Home</h3>
               </Nav.Link>
               <Nav.Link href="/" className="mx-lg-4">
-                <h2>Logout</h2>
+                <h3 style={{color:"white"}}>Logout</h3>
+              </Nav.Link>
+              <Nav.Link href="/cart" className="mx-lg-4">
+                <h3 style={{color:"white"}}>Cart</h3>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <br></br>
     </div>
   );
 }
