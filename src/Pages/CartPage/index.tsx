@@ -13,7 +13,7 @@ const CartPage: React.FC = () => {
     try {
       const userId = localStorage.getItem('usid');
       console.log(userId);
-      console.log(userId);
+      // console.log(userId);
       const response = await fetch(`http://localhost:8082/api/orders/fetchOrders/${userId}`);
       const data = await response.json();
       console.log(data);
